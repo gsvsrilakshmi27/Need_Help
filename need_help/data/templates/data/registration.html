@@ -1,0 +1,99 @@
+<html>
+<head>
+<script>
+function myfun()
+{
+ var s = document.getElementById("number").value;
+ var s1 = document.getElementById("pwd1").value;
+ var s2 = document.getElementById("pwd2").value;
+var s3 =  document.getElementById("blood").value;
+var s4 = document.getElementById("city").value;
+var s5 = document.getElementById("nam").value;
+var pattern = "\[a-zA-Z .]";
+if(s5 == "")
+{
+alert("please enter a name")
+}
+if (s5.match(pattern))
+{
+return true;
+}
+else
+{
+alert("enter valid name")
+}
+if(s3 == "Select blood group")
+{
+alert("please select a blood group")
+}
+
+ if(s < 7000000000 || s > 9999999999)
+ {
+   alert("Please enter a valid mobile number.");
+ }
+if(s4 == "Select city")
+{
+alert("please select a city")
+}
+if(s1 == "" && s2 =="")
+{
+alert("enter pasword")
+}
+if(s1 != (s2) )
+{
+alert("Passwords mismatch");
+}
+}
+</script>
+</head>
+<body bgcolor = "pink">
+<center>
+<h1> REGISTRATION	</h1>
+NAME <input type = "text" name = "n1" id = "nam"></br><br/>
+BLOOD GROUP <select style = "width:200px;" id = "blood">
+<option >Select blood group</option>
+<option value = "A+">A+</option>
+<option value = "A-">A-</option>
+<option value = "B+">B+</option>
+<option value = "B-">B-</option>
+<option value = "O+">O+</option>
+<option value = "O-">O-</option>
+<option value = "AB+">AB+</option>
+<option value = "AB-">AB-</option>
+<option value = "Bombay Blood Group">Bombay Blood Group</option>
+</select><br/><br/>
+MOBILE NUMBER <input type = "text" name = "number" size = "10" id = "number"></br></br>
+SELECT NEAR BY CITY <select style = "width:200px;" id = "city">
+<option >Select city</option>
+<option value = "Adilabad">Adilabad</option>
+<option value = "Anantapur">Anantapur</option>
+<option value = "Chittoor">Chittoor</option>
+<option value = "Eluru">Eluru</option>
+<option value = "Guntur">Guntur</option>
+<option value = "Hyderabad">Hyderabad</option>
+<option value = "Kadapa">Kadapa</option>
+<option value = "Kakinada">Kakinada</option>
+<option value = "Karimnagar">Karimnagar</option>
+<option value = "Khammam">Khammam</option>
+<option value = "Kurnool">Kurnool</option>
+<option value = "Machilipatnam">Machilipatnam</option>
+<option value = "Mahbubnagar">Mahbubnagar</option>
+<option value = "Nalgonda">Nalgonda</option>
+<option value = "Nellore">Nellore</option>
+<option value = "Nizamabad">Nizamabad</option>
+<option value = "Ongole">Ongole</option>
+<option value = "Rajahmandry">Rajahmandry</option>
+<option value = "Sangareddy">Sangareddy</option>
+<option value = "Srikakulam">Srikakulam</option>
+<option value = "Tirupati">Tirupati</option>
+<option value = "Vijayawada">Vijayawada</option>
+<option value = "Vizianagaram">Vizianagaram</option>
+<option value = "Vizag">Vizag</option>
+<option value = "Warangal">Warangal</option>
+</select><br/><br/>
+PASSWORD <input type = "password" id = "pwd1"></br></br>
+RE-ENTER PASSWORD <input type = "password" id = "pwd2"></br><br/>
+<input type = "submit" value = "SUBMIT" onclick = "myfun()">
+</center>
+</body>
+</html>
