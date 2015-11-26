@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +13,7 @@
 
     
   </head>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <body background="/static/data/images/10.jpg" no-repeat>
     <div style="background-color:#ff1a1a" align="center" class="navbar navbar-default navbar-static-top"  >
     <h1><b>NEED HELP</b>
@@ -23,13 +25,13 @@
 <div>
 <form action="demo_form.asp" method="get" >
 <font    size="4" color="black">To Donate Blood</font>
-<<<<<<< HEAD
+
 <button   type="submit">   <a href = "/data/registration"> register </a>   </button>
 <!-- <a href = "/data/registration"> register </a> -->
-=======
+
 <!-- <button   type="submit" value="fav_HTML">   REGISTER   </button> -->
-<button type = "submit"><a href = "/data/registration"> register </a></button>
->>>>>>> cc93567fd403764221ceb5535a1e6b6f1879e6a0
+
+
 
 
 </form>
@@ -42,23 +44,39 @@
 </div>
 <div>
   <font size="4" color="black">To change Details</font>
-  <form name="login">
-            MobileNumber<input type="text" name="MobileNumber"/>
-            Password<input type="password" name="Password"/>
-            <input type="button" onclick="check(this.form)" value="Login"/>
-            
+  <form name="login" action="validate1">
+            MobileNumber<input type="text" name="MobileNumber" id = "mobile"/>
+            Password<input type="password" name="Password" id = "pwd"/>
+           <!-- <button   type="submit" onclick = "myfun()">   <a href = "/data/login"> login </a>   </button> -->
+            <input type = "submit" value = "LOGIN" >
         </form>
-        <script language="javascript">
-            function check(form) { /*function to check userid & password*/
-                /*the following code checkes whether the entered userid and password are matching*/
-                if(form.MobileNumber.value == "MobileNumber" && form.Password.value == "password") {
-                    window.open('change.html')/*opens the target page while Id & password matches*/
-                }
-                else {
-                    alert("Error mobilename or Username")/*displays error message*/
-                }
-            }
-        </script>
+      // <script>
+      //    function myfun(){
+          
+      //   $.ajax({
+      //       url : "/data/validate1/", // the endpoin
+      //       type : "GET", // http method
+      //       data : {mobile_number:$("#mobile").val(),
+      //             password:$("#pwd").val(),
+                  
+      //        }, // data sent with the post request
+      //       // handle a successful response
+      //       success : function(json) {
+              
+      //           alert(json) // log the console.log("success"); // another sanity check
+      //           $("#mobile").val('');
+      //           $("#pwd").val('');
+                
+      //       },
+      //       // handle a non-successful response
+      //       error : function(xhr,errmsg,err) {
+      //           $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+      //               " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+      //           alert(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+      //       }
+      //   });
+      // };
+      //   </script>
       </div>
 </div>
   </body>

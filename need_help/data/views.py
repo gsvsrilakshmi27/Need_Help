@@ -1,5 +1,5 @@
 
-from django.shortcuts import render
+from django.shortcuts import render,render_to_response
 from django.http import HttpResponse
 from .models import Donor
 import cgi
@@ -47,7 +47,25 @@ def validate(request):
         response = 'sucess'
     else:
 
-        response = 'failure'
+        response = 'already registered'
     # json_data = json.dumps(response)
     return HttpResponse(response)
+
+def validate1(request):
+    
+    """return HttpResponse("Hello, world. You're at the polls index.")"""
+    mob_num = request.GET.get('MobileNumber')
+    pwd = request.GET.get('Password')
+    response = {}
+    if Donor.objects.filter(mobile_number = mob_num,password=pwd):
+        return render_to_response(
+              'data/login.html',
+              context_instance=RequestContext(request)
+          )
+    else:
+        return render_to_response(
+              'data/index.html',
+              context_instance=RequestContext(request)
+          )
+
     
