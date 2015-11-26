@@ -13,20 +13,41 @@ from django.template import RequestContext, loader
 def index(request):
     return render(request, "data/index.html")
 def registration(request):
-	return render(request,"data/registration.html")
+    return render(request,"data/registration.html")
 def validate(request):
+
     """return HttpResponse("Hello, world. You're at the polls index.")"""
     donar_name = request.GET.get('donar_name')
     blood_group = request.GET.get('blood_group')
     mobile_number = request.GET.get('mobile_number')
     city = request.GET.get('city')
     password = request.GET.get('password')
+    password1 = request.GET.get('password1')
     response = {}
-    if not Donor.objects.filter(donar_name=donar_name):
+   
+    if blood_group == 'Select blood group':
+        response = 'select any blood group'
+        return HttpResponse(response)
+
+    if not int(mobile_number) >= 7000000000 and int(mobile_number) <= 9999999999:
+        response = 'enter valid mobile number'
+        return HttpResponse(response)
+
+    if city == 'Select city':
+        response = 'select any city'
+        return HttpResponse(response)
+
+    if not password == password1:
+        response = 'password missmatch'
+        return HttpResponse(response)
+
+    if not Donor.objects.filter(mobile_number = mobile_number):
         s = Donor(donar_name=donar_name, blood_group=blood_group, city_name = city, mobile_number = mobile_number,password= password)
         s.save()
-        response['status'] = 'sucess'
+        response = 'sucess'
     else:
-        response['status'] = 'failure'
-    json_data = json.dumps(response)
-    return HttpResponse(json_data, content_type = "application/json")
+
+        response = 'failure'
+    # json_data = json.dumps(response)
+    return HttpResponse(response)
+    

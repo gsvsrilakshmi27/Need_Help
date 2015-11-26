@@ -1,6 +1,6 @@
 <html>
 <head>
-	 
+   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   
 <script>
@@ -51,7 +51,7 @@
 </head>
 <body bgcolor = "pink">
 <center>
-<h1> REGISTRATION	</h1>
+<h1> REGISTRATION </h1>
 NAME <input type = "text" name = "n1" id = "nam"></br><br/>
 BLOOD GROUP <select style = "width:200px;" id = "blood">
 <option >Select blood group</option>
@@ -65,7 +65,7 @@ BLOOD GROUP <select style = "width:200px;" id = "blood">
 <option value = "AB-">AB-</option>
 <option value = "Bombay Blood Group">Bombay Blood Group</option>
 </select><br/><br/>
-MOBILE NUMBER <input type = "text" name = "number" size = "10" id = "number"></br></br>
+MOBILE NUMBER <input type = "tel" name = "number" size = "10" id = "number"></br></br>
 SELECT NEAR BY CITY <select style = "width:200px;" id = "city">
 <option >Select city</option>
 <option value = "Adilabad">Adilabad</option>
@@ -99,9 +99,9 @@ RE-ENTER PASSWORD <input type = "password" id = "pwd2"></br><br/>
 <input type = "submit" value = "SUBMIT" onclick = "senddata()">
 </center>
 <script>
-  	function senddata(){
+    function senddata(){
 
-  			$.ajax({
+        $.ajax({
             url : "/data/validate/", // the endpoin
             type : "GET", // http method
             data : {donar_name:$("#nam").val(),
@@ -109,25 +109,27 @@ RE-ENTER PASSWORD <input type = "password" id = "pwd2"></br><br/>
                   mobile_number:$("#number").val(),
                   city:$("#city").val(),
                   password:$("#pwd1").val(),
+                  password1:$("#pwd2").val(),
              }, // data sent with the post request
             // handle a successful response
             success : function(json) {
-            	
-                console.log(json); // log the console.log("success"); // another sanity check
+              
+                alert(json) // log the console.log("success"); // another sanity check
                 $("#nam").val('');
                 $("#blood").val('');
                 $("#number").val('');
                 $("#city").val('');
                 $("#pwd1").val('');
+                $("#pwd2").val('');
             },
             // handle a non-successful response
             error : function(xhr,errmsg,err) {
                 $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
                     " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
-                console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                alert(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
             }
         });
-  		};
+      };
   </script>
 </body>
 </html>
