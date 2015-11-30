@@ -1,34 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    
-    
-  </head>
-  <body  bgcolor ="pink">
-  <button type = "submit" align = "right"><a href = "/data">Home</a></button> 
-    <form action="#" name="To Change Details " >
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body bgcolor = "teal">
+<div  align = "center">
+<h3>Change Password</h3>
+mobile :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type = "text" id = "phone"><br/><br/>
+Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type = "password" id = "pwd"><br/><br/>
+New Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type = "password" id = "pwd1"><br/></br>
+Re-enter New Password: <input type = "password" id = "pwd2"><br/></br>
+<input type = "submit" value = "SUBMIT" onclick = "password()">
+</div>
+<div align = "center">
+<h3>Change Mobile Number</h3>
+Mobile Num:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" id = "mob"><br/><br/>
+New Mobile Num :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" id = "mob1"><br/><br/>
+Re-enter New Mobile Num: <input type = "text" id = "mob2"><br/></br>
+<input type = "submit" value = "SUBMIT" onclick = "mobile()">
+</div>
+<script>
+    function password(){
 
-<table cellpadding="5" width="20%" bgcolor="99FFFF" align="center"
-cellspacing="5">
-
-<tr>
-<td colspan=2>
-<center><font size=4><b>To Change Details</b></font></center>
-</td>
-</tr>
-
-<tr>
-<td></td>
-<td><input type="button" name="fathername" id="fathername"
-size="100" value = "To change Mobile number" ></td>
-</tr>
-
-<tr>
-<td></td>
-<td><input type="button" name="fathername" id="fathername"
-size="30"  value = "To change Password"></td>
-</tr>
-    
-   
-  </body>
+        $.ajax({
+            url : "/data/validate2/", // the endpoin
+            type : "GET", // http method
+            data : {phonenumber:$("#phone").val(),
+                  oldpassword:$("#pwd").val(),
+                  newpassword:$("#pwd1").val(),
+                  renewpassword:$("#pwd2").val(),
+                 
+             }, // data sent with the post request
+            // handle a successful response
+            success : function(json) {
+              
+                alert(json) // log the console.log("success"); // another sanity check
+                $("#phone").val('');
+                $("#pwd").val('');
+                $("#pwd1").val('');
+                $("#pwd2").val('');
+                
+            },
+            // handle a non-successful response
+            error : function(xhr,errmsg,err) {
+                $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+                    " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                alert(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+            }
+        });
+      };
+  </script>
+  <script>
+    function mobile(){
+        $.ajax({
+            url : "/data/validate3/", // the endpoin
+            type : "GET", // http method
+            data : {
+                  oldmobile:$("#mob").val(),
+                  newmobile:$("#mob1").val(),
+                  renewmobile:$("#mob2").val(),
+                 
+             }, // data sent with the post request
+            // handle a successful response
+            success : function(json) {
+              
+                alert(json) // log the console.log("success"); // another sanity check
+                
+                $("#mob").val('');
+                $("#mob1").val('');
+                $("#mob2").val('');
+                
+            },
+            // handle a non-successful response
+            error : function(xhr,errmsg,err) {
+                $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+                    " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                alert(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+            }
+        });
+      };
+  </script>
+</body>
 </html>
