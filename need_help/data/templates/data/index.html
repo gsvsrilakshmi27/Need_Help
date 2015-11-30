@@ -44,7 +44,8 @@
 </div>
 <div>
   <font size="4" color="black">To change Details</font>
-  <form name="login" action="validate1">
+  <form method="POST" name="login" action="validate1/">
+            {% csrf_token %}
             MobileNumber<input type="text" name="MobileNumber" id = "mobile"/>
             Password<input type="password" name="Password" id = "pwd"/>
            <!-- <button   type="submit" onclick = "myfun()">   <a href = "/data/login"> login </a>   </button> -->

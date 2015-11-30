@@ -12,6 +12,7 @@ from django.template import RequestContext, loader
 # Create your views here.
 def index(request):
     return render(request, "data/index.html")
+
 def registration(request):
     return render(request,"data/registration.html")
 def validate(request):
@@ -54,18 +55,68 @@ def validate(request):
 def validate1(request):
     
     """return HttpResponse("Hello, world. You're at the polls index.")"""
-    mob_num = request.GET.get('MobileNumber')
-    pwd = request.GET.get('Password')
-    response = {}
+    mob_num = request.POST.get('MobileNumber')
+    pwd = request.POST.get('Password')
+   
     if Donor.objects.filter(mobile_number = mob_num,password=pwd):
         return render_to_response(
               'data/login.html',
-              context_instance=RequestContext(request)
-          )
+            )
     else:
         return render_to_response(
-              'data/index.html',
-              context_instance=RequestContext(request)
-          )
+              'data/alert.html',
+            )
+
+
+def validate2(request):
+    """return HttpResponse("Hello, world. You're at the polls index.")"""
+    phone = request.GET.get('phonenumber')
+    pwd = request.GET.get('oldpassword')
+    pwd1 = request.GET.get('newpassword')
+    pwd2 = request.GET.get('renewpassword')
+
+    response = {}
+    if not pwd1 == pwd2:
+        response = 'new password mismatch'
+        return HttpResponse(response)
+
+
+    if Donor.objects.filter(mobile_number=phone,password = pwd):
+        Donor.objects.filter(mobile_number=phone).update(password=pwd1)
+        # s.save()
+        response = 'password changed'
+        return HttpResponse(response)
+
+    else:
+        response = 'enter old mobile number and password correctly'
+        return HttpResponse(response)
+
+def validate3(request):
+
+    """return HttpResponse("Hello, world. You're at the polls index.")"""
+    
+    mob = request.GET.get('oldmobile')
+    mob1 = request.GET.get('newmobile')
+    mob2 = request.GET.get('renewmobile')
+
+    response = {}
+    if not int(mob1) == int(mob2):
+        response = 'new phonenumber mismatch'
+        return HttpResponse(response)
+
+    if not int(mob1) >= 7000000000 and int(mob1) <= 9999999999:
+        response = 'enter valid mobile number'
+        return HttpResponse(response)
+
+    if Donor.objects.filter(mobile_number=mob):
+        Donor.objects.filter(mobile_number=mob).update(mobile_number=mob1)
+        # s.save()
+        response = 'password changed'
+        return HttpResponse(response)
+    else:
+        response = 'enter old mobile number correctly'
+        return HttpResponse(response)
+        
+        
 
     
