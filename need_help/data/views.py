@@ -15,6 +15,15 @@ def index(request):
 
 def registration(request):
     return render(request,"data/registration.html")
+
+# def retrieval(request):
+    # Donor_list=Donor.objects.all()
+    # template = loader.get_template('data/retrieval.html')
+    # context = RequestContext(request, {
+    #            'Donor_details': Donor_list
+    # })
+    # return HttpResponse(template.render(context))
+    # return render(request,"data/retrieval.html")
 def validate(request):
 
     """return HttpResponse("Hello, world. You're at the polls index.")"""
@@ -117,6 +126,24 @@ def validate3(request):
         response = 'enter old mobile number correctly'
         return HttpResponse(response)
         
-        
+def validate4(request):
+    requiredcity= request.GET.get('cit')
+    requiredbloodgroup = request.GET.get('blod')
+    if requiredcity == 'city' or requiredbloodgroup == 'Select blood group':
+        return render_to_response(
+              'data/alert1.html',
+            )
+    else:
+        Donor_list=Donor.objects.filter(city_name = requiredcity,blood_group = requiredbloodgroup )
+        template = loader.get_template('data/retrieval.html')
+        context = RequestContext(request, {
+        'Donor_details': Donor_list
+        })
+        return HttpResponse(template.render(context))
+
+
+
+    
+
 
     
