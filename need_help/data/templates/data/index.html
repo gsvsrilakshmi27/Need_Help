@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,33 +18,57 @@
 
     
   </head>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <body background="/static/data/images/10.jpg" no-repeat>
-    <div style="background-color:#ff1a1a" align="center" class="navbar navbar-default navbar-static-top"  >
-    <h1><b>NEED HELP</b>
+   <!-- //<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+  <body background="/static/data/images/3.jpg" >
+    <div  align="center"  >
+    <h1 ><em><font face = "Comic Sans MS" size = "10" color = "maroon">NEED HELP</font></em></h1>
+<img src = "/static/data/images/p6.png" width = "200" height = "200" align = "right"></img>
+  </div>
+    <div class="container" align = "left">
+  <!-- <h2>Simple Collapsible</h2> -->
+  <a href="#demo" class="btn btn-info" data-toggle="collapse">About us</a>
+  <div id="demo" class="collapse" >
+  <font color= "white">This site helps in getting the information regarding the available blood donors based on the selected city or the blood group. It even provides a platform for a user to register himself as a blood donor and save a valuable life.</font>
+  </div>    <hr>
 
-  
-  
-</h1>
+  <!-- <div class="container">
+ 
+  <div class="btn-group btn-group-justified">
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary">HOME</button>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary">ABOUT US</button>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary">CONTACT US</button>
+    </div>
+  </div>
+</div> -->
 
-<div>
-<form action="demo_form.asp" method="get" >
-<font    size="4" color="black">To Donate Blood</font>
 
-<button   type="submit">   <a href = "/data/registration"> register </a>   </button>
-<!-- <a href = "/data/registration"> register </a> -->
 
-<!-- <button   type="submit" value="fav_HTML">   REGISTER   </button> -->
+
+<!-- <div class="container" align = "rigth"> -->
+  <!-- <h2>Simple Collapsible</h2> -->
+  <!-- <div align = "right"> <a href="#demo1" class="btn btn-info" data-toggle="collapse" >Contact us</a></div>
+  <div id="demo1" class="collapse" >
+  <font color= "white" align = "right">  dxbxbdx</font>
+  </div>
+</div> -->
+<!-- </div>
+ -->  
+
 
 
 
 
 </form>
-
+<div>
 <form action="validate4" method="GET" align="left"  >
-<font size="4" color="black" >To Know Available Blood Donar Details</font>
-<p>SELECT REQUIRED OPTIONS</p>
-SELECT CITY
+<font size="5" color="black" ><b>To Know Available Blood Donors</b></font><br><br>
+<!-- <p>SELECT REQUIRED OPTIONS</p> -->
+Select City&nbsp;&nbsp;&nbsp;&nbsp;
 <select style = "width:200px;" name = "cit">
 <option >city</option>
 <option value = "Adilabad">Adilabad</option>
@@ -67,8 +96,8 @@ SELECT CITY
 <option value = "Vizianagaram">Vizianagaram</option>
 <option value = "Vizag">Vizag</option>
 <option value = "Warangal">Warangal</option>
-</select>
-BLOOD GROUP 
+</select><br><br>
+Blood Group 
 <select style = "width:200px;" name = "blod">
 <option >Select blood group</option>
 <option value = "A+">A+</option>
@@ -85,45 +114,33 @@ BLOOD GROUP
 
 <input type = "submit" value = "SUBMIT" >
 
-</form>
+<div align = "center">
+<form action="demo_form.asp" method="get"  >
+<font    size="6" color="black" ><b>To Donate Blood</b></font><br><br>
+
+<button   type="submit">   <a href = "/data/registration"> register </a>   </button>
+<!-- <a href = "/data/registration"> register </a> -->
+
+<!-- <button   type="submit" value="fav_HTML">   REGISTER   </button> -->
+
+
 </div>
-<div>
-  <font size="4" color="black">To change Details</font>
+</form>
+
+<div align="right">
+  <font size="6" color="black" align="right"><b>To change Details</b></font>
   <form method="POST" name="login" action="validate1/">
-            {% csrf_token %}
-            MobileNumber<input type="text" name="MobileNumber" id = "mobile"/>
-            Password<input type="password" name="Password" id = "pwd"/>
+          
+            MobileNumber&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="MobileNumber" id = "mobile"/><br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="Password" id = "pwd"/><br><br>
            <!-- <button   type="submit" onclick = "myfun()">   <a href = "/data/login"> login </a>   </button> -->
+           
             <input type = "submit" value = "LOGIN" >
         </form>
-      // <script>
-      //    function myfun(){
-          
-      //   $.ajax({
-      //       url : "/data/validate1/", // the endpoin
-      //       type : "GET", // http method
-      //       data : {mobile_number:$("#mobile").val(),
-      //             password:$("#pwd").val(),
-                  
-      //        }, // data sent with the post request
-      //       // handle a successful response
-      //       success : function(json) {
-              
-      //           alert(json) // log the console.log("success"); // another sanity check
-      //           $("#mobile").val('');
-      //           $("#pwd").val('');
-                
-      //       },
-      //       // handle a non-successful response
-      //       error : function(xhr,errmsg,err) {
-      //           $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
-      //               " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
-      //           alert(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
-      //       }
-      //   });
-      // };
-      //   </script>
+       
+
       </div>
-</div>
+      <div align = "left" ><img src="/static/data/images/h2.png"></img></div>
+<!-- </div> -->
   </body>
 </html>
