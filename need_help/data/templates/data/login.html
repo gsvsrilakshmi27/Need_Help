@@ -3,8 +3,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 <body bgcolor = "teal">
+
 <div  align = "center">
-<h3>Change Password</h3>
+<button type="button" align = "center" onclick="hidePasswordAction()">Change Password</button>
+<br></br>
+</div>
+<div  align = "center" id = "changePasswordView">
+
+
 mobile :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type = "text" id = "phone"><br/><br/>
 Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type = "password" id = "pwd"><br/><br/>
 New Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type = "password" id = "pwd1"><br/></br>
@@ -12,7 +18,11 @@ Re-enter New Password: <input type = "password" id = "pwd2"><br/></br>
 <input type = "submit" value = "SUBMIT" onclick = "password()">
 </div>
 <div align = "center">
-<h3>Change Mobile Number</h3>
+<div  align = "center">
+<button type="button" align = "center" onclick="hideMobileaction()">Change Mobile</button>
+<br></br>
+</div>
+<div  align = "center" id = "changeMobileView">
 Mobile Num:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" id = "mob"><br/><br/>
 New Mobile Num :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" id = "mob1"><br/><br/>
 Re-enter New Mobile Num: <input type = "text" id = "mob2"><br/></br>
@@ -79,5 +89,37 @@ Re-enter New Mobile Num: <input type = "text" id = "mob2"><br/></br>
         });
       };
   </script>
+
+
+  <script>
+        //This ready will fire when the document was loaded.
+          $( document ).ready(function() {
+            //We are hiding the with toggle
+            $('#changePasswordView').toggle();
+          });
+
+          function hidePasswordAction() {
+          $('#changePasswordView').toggle();
+          }
+  </script>
+
+
+  <script>
+        //This ready will fire when the document was loaded.
+          $( document ).ready(function() {
+            //We are hiding the with toggle
+            $('#changeMobileView').toggle();
+          });
+
+          function hideMobileaction() {
+          $('#changeMobileView').toggle();
+          }
+  </script>
+
+
+
+
+
+
 </body>
 </html>
