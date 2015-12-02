@@ -136,7 +136,7 @@ Blood Group
 <div align="right">
   <font size="6" color="red" align="right"><b>To change Details</b></font>
   <form method="POST" name="login" action="validate1/">
-          
+          {% csrf_token %}
             MobileNumber&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="MobileNumber" id = "mobile"/><br><br>
             &nbsp;&nbsp;&nbsp;&nbsp;Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="Password" id = "pwd"/><br><br>
            <!-- <button   type="submit" onclick = "myfun()">   <a href = "/data/login"> login </a>   </button> -->
@@ -170,10 +170,6 @@ Blood Group
       //   });
       // };
       //   </script>
-
-       
-
->>>>>>> 168ce65ba5246110e2586305983529e0561db929
       </div>
 
 

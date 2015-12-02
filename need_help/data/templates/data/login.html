@@ -24,17 +24,17 @@ Re-enter New Password: <input type = "password" id = "pwd2"><br/></br>
 <br></br>
 </div>
 <div  align = "center" id = "changeMobileView">
-OLD Mobile Num:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text"  id = "mob"><br/><br/>
+Old Mobile Num:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text"  id = "mob"><br/><br/>
 New Mobile Num :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" id = "mob1"><br/><br/>
 Re-enter New Mobile Num: &nbsp;<input type = "text" id = "mob2"><br/></br>
 <input type = "submit" value = "SUBMIT" onclick = "mobile()">
 </div>
 <script>
     function password(){
-
+        {% csrf_token %}
         $.ajax({
             url : "/data/validate2/", // the endpoin
-            type : "GET", // http method
+            type : "POST", // http method
             data : {phonenumber:$("#phone").val(),
                   oldpassword:$("#pwd").val(),
                   newpassword:$("#pwd1").val(),
