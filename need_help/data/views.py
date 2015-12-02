@@ -39,7 +39,9 @@ def validate(request):
         response = 'select any blood group'
         return HttpResponse(response)
 
-    if not int(mobile_number) >= 7000000000 and int(mobile_number) <= 9999999999:
+    if int(mobile_number) >= 7000000000 and int(mobile_number) <= 9999999999:
+        print();
+    else:    
         response = 'enter valid mobile number'
         return HttpResponse(response)
 
@@ -54,7 +56,9 @@ def validate(request):
     if not Donor.objects.filter(mobile_number = mobile_number):
         s = Donor(donar_name=donar_name, blood_group=blood_group, city_name = city, mobile_number = mobile_number,password= password)
         s.save()
-        response = 'sucess'
+        response = 'sucessfully registered'
+        return HttpResponse(response)
+        
     else:
 
         response = 'already registered'
@@ -78,6 +82,7 @@ def validate1(request):
 
 
 def validate2(request):
+
     """return HttpResponse("Hello, world. You're at the polls index.")"""
     phone = request.GET.get('phonenumber')
     pwd = request.GET.get('oldpassword')
@@ -110,7 +115,7 @@ def validate3(request):
 
     response = {}
     if not int(mob1) == int(mob2):
-        response = 'new phonenumber mismatch'
+        response = 'new mobilenumber mismatch'
         return HttpResponse(response)
 
     if not int(mob1) >= 7000000000 and int(mob1) <= 9999999999:
@@ -120,7 +125,7 @@ def validate3(request):
     if Donor.objects.filter(mobile_number=mob):
         Donor.objects.filter(mobile_number=mob).update(mobile_number=mob1)
         # s.save()
-        response = 'password changed'
+        response = 'mobile number changed'
         return HttpResponse(response)
     else:
         response = 'enter old mobile number correctly'

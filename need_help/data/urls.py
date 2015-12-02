@@ -11,5 +11,5 @@ urlpatterns = [
 	url(r'^validate4/$', views.validate4, name='validate4'),
     url(r'^registration/$', views.registration, name = 'registration'),
     # url(r'^retrieval/$', views.retrieval, name = 'retrieval'),
-    url(r'^index/$',views.index,name = 'index'),
+    url(r'index/$',views.index,name = 'index'),
 ]
