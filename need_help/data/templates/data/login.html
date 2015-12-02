@@ -34,7 +34,7 @@ Re-enter New Mobile Num: &nbsp;<input type = "text" id = "mob2"><br/></br>
         {% csrf_token %}
         $.ajax({
             url : "/data/validate2/", // the endpoin
-            type : "POST", // http method
+            type : "GET", // http method
             data : {phonenumber:$("#phone").val(),
                   oldpassword:$("#pwd").val(),
                   newpassword:$("#pwd1").val(),

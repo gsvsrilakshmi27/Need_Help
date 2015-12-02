@@ -73,7 +73,7 @@ def validate1(request):
    
     if Donor.objects.filter(mobile_number = mob_num,password=pwd):
         return render_to_response(
-              'data/index.html',
+              'data/login.html',
             )
     else:
         return render_to_response(
@@ -82,6 +82,7 @@ def validate1(request):
 
 
 def validate2(request):
+
     """return HttpResponse("Hello, world. You're at the polls index.")"""
     phone = request.GET.get('phonenumber')
     pwd = request.GET.get('oldpassword')
@@ -114,7 +115,7 @@ def validate3(request):
 
     response = {}
     if not int(mob1) == int(mob2):
-        response = 'new phonenumber mismatch'
+        response = 'new mobilenumber mismatch'
         return HttpResponse(response)
 
     if not int(mob1) >= 7000000000 and int(mob1) <= 9999999999:
@@ -124,7 +125,7 @@ def validate3(request):
     if Donor.objects.filter(mobile_number=mob):
         Donor.objects.filter(mobile_number=mob).update(mobile_number=mob1)
         # s.save()
-        response = 'password changed'
+        response = 'mobile number changed'
         return HttpResponse(response)
     else:
         response = 'enter old mobile number correctly'
