@@ -39,7 +39,9 @@ def validate(request):
         response = 'select any blood group'
         return HttpResponse(response)
 
-    if not int(mobile_number) >= 7000000000 and int(mobile_number) <= 9999999999:
+    if int(mobile_number) >= 7000000000 and int(mobile_number) <= 9999999999:
+        print();
+    else:    
         response = 'enter valid mobile number'
         return HttpResponse(response)
 
@@ -54,7 +56,9 @@ def validate(request):
     if not Donor.objects.filter(mobile_number = mobile_number):
         s = Donor(donar_name=donar_name, blood_group=blood_group, city_name = city, mobile_number = mobile_number,password= password)
         s.save()
-        response = 'sucess'
+        response = 'sucessfully registered'
+        return HttpResponse(response)
+        
     else:
 
         response = 'already registered'
@@ -69,7 +73,7 @@ def validate1(request):
    
     if Donor.objects.filter(mobile_number = mob_num,password=pwd):
         return render_to_response(
-              'data/login.html',
+              'data/index.html',
             )
     else:
         return render_to_response(
